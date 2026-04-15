@@ -1,10 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
+import type { IThumbnail } from '../assets/assets';
+import SoftBackdrop from '../components/SoftBackdrop';
 
 const Generate = () => {
+
+  const {id} = useParams();
+  const [title, setTitle] = useState('')
+  const [additionalDetails, setAdditionalDetails] = useState('')
+  const [thumbnail, setThumbnail] = useState<IThumbnail | null>(null)
+  const [loading, setLoading] = useState(false)
+
   return (
-    <div>
-        
-    </div>
+    <>
+      <SoftBackdrop/>
+      <div className='pt-24 min-h-screen'>
+        <main className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-28 lg:pb-8'>
+          <div className='grid lg:grid-cols-[400px_1fr] gap-8'>
+            {/* LEFT PANEL */}
+            <div className={`space-y-6 ${id && 'pointer-events-none'}`}>
+
+            </div>
+
+            {/* RIGHT PANEL */}
+            <div>
+
+            </div>
+          </div>
+        </main>
+      </div>
+    </>
   )
 }
 
